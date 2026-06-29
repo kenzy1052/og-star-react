@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
 const stories = [
-  { name: "Peter Apheli", route: "Accra → Dubai", quote: "From the first call to my first day in Dubai, OG Star handled everything. The visa, the interview, the landing — quietly excellent." },
+  { name: "Peter Apheli", route: "Accra → Dubai", quote: "From the first call to my first day in Dubai, OG Star Travel & Tours handled everything. The visa, the interview, the landing — quietly excellent." },
   { name: "Daniela Oppong", route: "Accra → Toronto", quote: "They didn't sell me a package. They built me a plan. Two years later, I'm settled in Canada with my family." },
   { name: "Sarah Amadu", route: "Accra → Abu Dhabi", quote: "Professional, calm, deeply human. They turned the most stressful chapter of my life into the most exciting one." },
 ];

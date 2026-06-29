@@ -11,7 +11,7 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About — OG Star Travel & Tour" },
       { name: "description", content: "A quiet team in Accra opening doors abroad. The story, values and people behind OG Star Travel & Tour." },
-      { property: "og:title", content: "About — OG Star" },
+      { property: "og:title", content: "About — OG Star Travel & Tours" },
       { property: "og:description", content: "A concierge-grade international mobility brand from Ghana." },
       { property: "og:image", content: heroImg },
     ],
@@ -57,7 +57,7 @@ function AboutPage() {
               >
                 <div className="mb-7 inline-flex items-center gap-3 border border-border bg-background/70 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground backdrop-blur">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  About OG Star
+                  About OG Star Travel & Tours
                 </div>
                 <h1 className="font-display text-[2.6rem] leading-[1.02] tracking-tight text-balance md:text-[5rem] lg:text-[5.6rem]">
                   A quiet team <span className="italic text-foreground/80">in</span>
@@ -77,7 +77,7 @@ function AboutPage() {
                 transition={{ duration: 1.4, ease: [0.2, 0.7, 0.2, 1] }}
                 className="relative aspect-[4/5] w-full overflow-hidden"
               >
-                <img src={heroImg} alt="OG Star concierge at work in Accra" className="h-full w-full object-cover" fetchPriority="high" />
+                <img src={heroImg} alt="OG Star Travel & Tours concierge at work in Accra" className="h-full w-full object-cover" fetchPriority="high" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
               </motion.div>
             </div>
@@ -182,7 +182,7 @@ function AboutPage() {
             </div>
             <div className="md:col-span-5">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <img src={officeImg} alt="OG Star office interior in Accra" loading="lazy" className="h-full w-full object-cover" />
+                <img src={officeImg} alt="OG Star Travel & Tours office interior in Accra" loading="lazy" className="h-full w-full object-cover" />
               </div>
             </div>
           </div>

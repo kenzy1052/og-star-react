@@ -1,5 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { Plane, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo-mark.png";
+import {
+  PRIMARY_PHONE_DISPLAY,
+  PRIMARY_PHONE_TEL,
+  SECONDARY_PHONE_DISPLAY,
+  SECONDARY_PHONE_TEL,
+} from "@/lib/contact";
 
 export function Footer() {
   return (
@@ -7,15 +14,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-10">
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center border border-foreground/20 bg-background">
-                <Plane className="h-4 w-4" strokeWidth={1.5} />
-              </div>
-              <div className="leading-tight">
-                <div className="font-display text-lg">OG Star Travel & Tour</div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Relish the Experience</div>
-              </div>
-            </div>
+            <img
+              src={logo}
+              alt="OG Star Travel & Tours"
+              className="h-14 w-auto md:h-16"
+              width={360}
+              height={155}
+            />
             <p className="mt-7 max-w-md text-sm leading-relaxed text-muted-foreground">
               A premium international mobility brand based in Accra. Helping ambitious people travel, work and build futures abroad — with care, clarity and concierge-grade support.
             </p>
@@ -59,8 +64,8 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-accent" strokeWidth={1.5} />
                 <div>
-                  <a href="tel:+233206521474" className="hover:text-accent transition-colors block">+233 (0) 206 521 474</a>
-                  <a href="tel:+233242613372" className="hover:text-accent transition-colors block">+233 (0) 242 613 372</a>
+                  <a href={`tel:${PRIMARY_PHONE_TEL}`} className="hover:text-accent transition-colors block font-medium text-foreground">{PRIMARY_PHONE_DISPLAY}</a>
+                  <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-accent transition-colors block">{SECONDARY_PHONE_DISPLAY}</a>
                 </div>
               </li>
             </ul>

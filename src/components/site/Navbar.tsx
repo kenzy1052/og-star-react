@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Plane, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo-mark.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,14 +31,14 @@ export function Navbar() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "border-b border-border/60 bg-background/85 backdrop-blur-xl" : "bg-transparent"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center border border-foreground/20 bg-background">
-            <Plane className="h-4 w-4" strokeWidth={1.5} />
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-base">OG Star</div>
-            <div className="text-[9px] uppercase tracking-[0.3em] text-muted-foreground">Travel & Tour</div>
-          </div>
+        <Link to="/" className="flex items-center" aria-label="OG Star Travel & Tours — Home">
+          <img
+            src={logo}
+            alt="OG Star Travel & Tours"
+            className="h-11 w-auto md:h-14"
+            width={320}
+            height={138}
+          />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

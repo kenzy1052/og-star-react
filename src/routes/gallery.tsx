@@ -26,8 +26,8 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — OG Star Travel & Tour" },
-      { name: "description", content: "Memories from the runway. Real moments, real journeys, real people — captured through the OG Star experience." },
-      { property: "og:title", content: "Gallery — OG Star" },
+      { name: "description", content: "Memories from the runway. Real moments, real journeys, real people — captured through the OG Star Travel & Tours experience." },
+      { property: "og:title", content: "Gallery — OG Star Travel & Tours" },
     ],
   }),
   component: GalleryPage,
@@ -57,37 +57,6 @@ const items: GalleryItem[] = [
   { src: mole,     caption: "Mole National Park",             category: "Local Tours",   rotate:  3 },
   { src: waterfall,caption: "Wli Waterfalls",                 category: "Local Tours",   rotate: -2 },
   { src: workHero, caption: "New opportunities, new horizons",category: "Work Abroad",   rotate:  4 },
-  { src: aboutHero,caption: "The OG Star Team",               category: "Moments",       rotate: -3 },
-  {
-    src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80",
-    caption: "Above the clouds",
-    category: "Moments",
-    rotate: 2,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
-    caption: "Boarding · DXB",
-    category: "Moments",
-    rotate: -4,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
-    caption: "Road trip memories",
-    category: "Local Tours",
-    rotate: 3,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=800&q=80",
-    caption: "Group journey · Accra",
-    category: "Moments",
-    rotate: -1,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
-    caption: "Airport mornings",
-    category: "Moments",
-    rotate: 2,
-  },
 ];
 
 const CATEGORIES = ["All", "Work Abroad", "International", "Local Tours", "Moments"] as const;

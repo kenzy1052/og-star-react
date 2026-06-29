@@ -13,13 +13,16 @@ import interviewImg from "@/assets/work-interview.jpg";
 import dubai from "@/assets/opp-dubai.jpg";
 import canada from "@/assets/opp-canada.jpg";
 import europe from "@/assets/opp-europe.jpg";
+import asia from "@/assets/opp-asia.jpg";
+import africa from "@/assets/opp-africa.jpg";
+import america from "@/assets/opp-america.jpg";
 
 export const Route = createFileRoute("/work-travel")({
   head: () => ({
     meta: [
       { title: "Work & Travel Abroad — OG Star Travel & Tour" },
       { name: "description", content: "Concierge-crafted work & travel pathways to Dubai, Canada, Europe and beyond. Visa guidance, interview prep and relocation support — handled from Accra." },
-      { property: "og:title", content: "Work & Travel Abroad — OG Star" },
+      { property: "og:title", content: "Work & Travel Abroad — OG Star Travel & Tours" },
       { property: "og:description", content: "International opportunities, handled with care." },
     ],
   }),
@@ -33,11 +36,11 @@ const regions = [
     body: "Long-term pathways for professionals, students and families seeking a new chapter." },
   { img: europe, name: "Europe", tag: "Travel & Study",
     body: "Schengen guidance, study placements and curated cultural journeys across the continent." },
-  { img: dubai, name: "Asia", tag: "Emerging Opportunities",
+  { img: asia, name: "Asia", tag: "Emerging Opportunities",
     body: "Selective placements across Malaysia, Bali and rising Asian hubs." },
-  { img: europe, name: "America", tag: "Visa Advisory",
+  { img: america, name: "America", tag: "Visa Advisory",
     body: "Tourist and study visa preparation with a careful, documentation-first approach." },
-  { img: canada, name: "Africa", tag: "Regional Mobility",
+  { img: africa, name: "Africa", tag: "Regional Mobility",
     body: "Cross-continental travel for business and leisure across Africa's leading cities." },
 ];
 

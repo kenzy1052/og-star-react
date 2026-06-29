@@ -1,34 +1,32 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
+import g5 from "@/assets/intl-turkey.jpg";
+import g6 from "@/assets/local-castle.jpg";
+import { Lightbox, type LightboxImage } from "./Lightbox";
 
-// Two extra Unsplash travel images (reliable CDN, no auth required)
-const g5 = "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80";
-const g6 = "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&q=80";
-
-interface PolaroidItem {
-  src: string;
-  caption: string;
-  rotate: number;   // base tilt in degrees
-  hoverRotate: number; // tilt on hover
-  x: number;        // slight x nudge (%)
-  y: number;        // slight y nudge (px)
+interface PolaroidItem extends LightboxImage {
+  rotate: number;
+  hoverRotate: number;
   zIndex: number;
   delay: number;
 }
 
 const items: PolaroidItem[] = [
-  { src: g1, caption: "Departure day · Accra",        rotate: -4,  hoverRotate:  2,  x: 0,   y: 0,   zIndex: 1, delay: 0.00 },
-  { src: g2, caption: "Window seat · ACC → DXB",      rotate:  3,  hoverRotate: -2,  x: 0,   y: 0,   zIndex: 2, delay: 0.08 },
-  { src: g3, caption: "Cape Coast, Ghana",             rotate: -2,  hoverRotate:  4,  x: 0,   y: 0,   zIndex: 3, delay: 0.16 },
-  { src: g4, caption: "Group · Burj Khalifa",          rotate:  5,  hoverRotate: -3,  x: 0,   y: 0,   zIndex: 4, delay: 0.24 },
-  { src: g5, caption: "Above the clouds",              rotate: -3,  hoverRotate:  5,  x: 0,   y: 0,   zIndex: 5, delay: 0.32 },
-  { src: g6, caption: "Boarding · DXB",                rotate:  2,  hoverRotate: -4,  x: 0,   y: 0,   zIndex: 6, delay: 0.40 },
+  { src: g1, caption: "Departure day · Accra",   rotate: -4, hoverRotate:  2, zIndex: 1, delay: 0.00 },
+  { src: g2, caption: "Window seat · ACC → DXB", rotate:  3, hoverRotate: -2, zIndex: 2, delay: 0.08 },
+  { src: g3, caption: "Cape Coast, Ghana",        rotate: -2, hoverRotate:  4, zIndex: 3, delay: 0.16 },
+  { src: g4, caption: "Group · Burj Khalifa",     rotate:  5, hoverRotate: -3, zIndex: 4, delay: 0.24 },
+  { src: g5, caption: "Turkey delight",           rotate: -3, hoverRotate:  5, zIndex: 5, delay: 0.32 },
+  { src: g6, caption: "Elmina Castle, Ghana",     rotate:  2, hoverRotate: -4, zIndex: 6, delay: 0.40 },
 ];
 
 export function GalleryPreview() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
     <section
       className="bg-[oklch(0.97_0.012_75)] py-28 md:py-36"
@@ -60,7 +58,7 @@ export function GalleryPreview() {
             <motion.figure
               key={i}
               initial={{ opacity: 0, y: 40, rotate: it.rotate }}
-              whileInView={{ opacity: 1, y: it.y, rotate: it.rotate }}
+              whileInView={{ opacity: 1, y: 0, rotate: it.rotate }}
               whileHover={{
                 rotate: it.hoverRotate,
                 scale: 1.06,
@@ -74,17 +72,17 @@ export function GalleryPreview() {
                 rotate:  { duration: 0.35, ease: "easeOut" },
                 boxShadow: { duration: 0.3 },
               }}
+              onClick={() => setLightboxIndex(i)}
               style={{
                 position: "relative",
                 zIndex: it.zIndex,
                 cursor: "pointer",
-                // Polaroid white frame
                 background: "#fffdf8",
                 padding: "12px 12px 48px 12px",
                 boxShadow: "0 6px 20px rgba(0,0,0,0.13), 0 2px 6px rgba(0,0,0,0.08)",
-                // Tape strips via pseudo — we use a real element instead (see below)
+                willChange: "transform",
               }}
-              className="mx-auto w-[260px] sm:w-full"
+              className="group mx-auto w-[260px] sm:w-full"
             >
               {/* Tape strip top-center */}
               <div
@@ -106,20 +104,25 @@ export function GalleryPreview() {
               {/* Photo area */}
               <div
                 style={{
+                  position: "relative",
                   overflow: "hidden",
                   width: "100%",
                   aspectRatio: "4/3",
                   background: "#d4cfc7",
                 }}
               >
-                <motion.img
+                <img
                   src={it.src}
                   alt={it.caption}
                   loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className="transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/15 group-hover:opacity-100">
+                  <span className="rounded-full border border-white/70 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-white">
+                    View
+                  </span>
+                </div>
               </div>
 
               {/* Caption — Polaroid handwritten-style label */}
@@ -140,6 +143,13 @@ export function GalleryPreview() {
           ))}
         </div>
       </div>
+
+      <Lightbox
+        images={items}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onIndexChange={setLightboxIndex}
+      />
 
       {/* Load the handwritten font */}
       <style>{`

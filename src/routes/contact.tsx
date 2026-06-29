@@ -1,16 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2, MessageSquare, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock } from "lucide-react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import {
+  PRIMARY_PHONE_DISPLAY,
+  PRIMARY_PHONE_TEL,
+  SECONDARY_PHONE_DISPLAY,
+  SECONDARY_PHONE_TEL,
+  WHATSAPP_URL,
+} from "@/lib/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — OG Star Travel & Tour" },
       { name: "description", content: "Get in touch with OG Star Travel & Tour. Talk to us about work abroad opportunities, visa support, tours and relocation assistance." },
-      { property: "og:title", content: "Contact — OG Star" },
+      { property: "og:title", content: "Contact — OG Star Travel & Tours" },
     ],
   }),
   component: ContactPage,
@@ -121,8 +129,8 @@ function ContactPage() {
                   <div>
                     <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Phone & WhatsApp</div>
                     <div className="mt-1.5 space-y-1 text-sm">
-                      <a href="tel:+233206521474" className="block hover:text-accent transition-colors">+233 (0) 206 521 474</a>
-                      <a href="tel:+233242613372" className="block hover:text-accent transition-colors">+233 (0) 242 613 372</a>
+                      <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-medium text-foreground hover:text-accent transition-colors">{PRIMARY_PHONE_DISPLAY}</a>
+                      <a href={`tel:${SECONDARY_PHONE_TEL}`} className="block hover:text-accent transition-colors">{SECONDARY_PHONE_DISPLAY}</a>
                     </div>
                   </div>
                 </li>
@@ -155,12 +163,12 @@ function ContactPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/233206521474"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-10 flex items-center gap-3 border border-foreground/20 bg-background px-6 py-4 text-[11px] uppercase tracking-[0.25em] transition-colors hover:bg-foreground hover:text-background"
               >
-                <MessageSquare className="h-4 w-4" strokeWidth={1.5} />
+                <WhatsAppIcon className="h-4 w-4" />
                 Chat on WhatsApp
               </a>
             </motion.div>
@@ -184,7 +192,7 @@ function ContactPage() {
                   </div>
                   <h2 className="mt-8 font-display text-3xl md:text-4xl">Message received.</h2>
                   <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                    Thank you for reaching out. A member of the OG Star team will be in touch within one business day.
+                    Thank you for reaching out. A member of the OG Star Travel & Tours team will be in touch within one business day.
                   </p>
                   <button
                     onClick={() => { setSubmitted(false); setFormState({ name: "", email: "", phone: "", service: "", message: "" }); }}

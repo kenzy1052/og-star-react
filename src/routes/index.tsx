@@ -12,6 +12,18 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "OG Star Travel & Tour — Your Gateway to the World" },
+      { name: "description", content: "Premium international travel, work abroad, Dubai opportunities, visa support and curated tours from Accra, Ghana. Concierge-grade service for every journey." },
+      { property: "og:title", content: "OG Star Travel & Tour — Your Gateway to the World" },
+      { property: "og:description", content: "Premium international travel, work abroad, visa support and curated tours from Accra, Ghana." },
+      { property: "og:url", content: "https://ogstartravel.com/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "OG Star Travel & Tour — Your Gateway to the World" },
+      { name: "twitter:description", content: "Premium international travel, work abroad, visa support and curated tours from Accra, Ghana." },
+    ],
+  }),
   component: Index,
 });
 

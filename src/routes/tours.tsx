@@ -11,7 +11,7 @@ export const Route = createFileRoute("/tours")({
     meta: [
       { title: "Tours — OG Star Travel & Tour" },
       { name: "description", content: "Curated local Ghanaian journeys and international escapes — editorial, elegant, experience-driven." },
-      { property: "og:title", content: "Tours — OG Star" },
+      { property: "og:title", content: "Tours — OG Star Travel & Tour" },
     ],
   }),
   component: ToursPage,

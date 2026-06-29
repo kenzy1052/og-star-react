@@ -24,7 +24,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              OG Star opens doors to international opportunities — Dubai work programs, Canadian relocation, European travel and curated tours. Every journey, concierge-crafted from Accra.
+              OG Star Travel and Tours opens doors to international opportunities — Dubai work programs, Canadian relocation, European travel and curated tours. Every journey, concierge-crafted from Accra.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">

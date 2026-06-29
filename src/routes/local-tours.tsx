@@ -8,16 +8,16 @@ import heroImg from "@/assets/local-hero.jpg";
 import castle from "@/assets/local-castle.jpg";
 import mole from "@/assets/local-mole.jpg";
 import waterfall from "@/assets/local-waterfall.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
+import ashanti from "@/assets/local-ashanti.jpeg";
+import accra from "@/assets/local-accra.jpeg";
+import nzulezu from "@/assets/local-nzulezu.jpeg";
 
 export const Route = createFileRoute("/local-tours")({
   head: () => ({
     meta: [
       { title: "Local Tours — OG Star Travel & Tour" },
       { name: "description", content: "Curated, editorial-style Ghanaian journeys — Cape Coast, Mole, Wli, the Ashanti Kingdom and beyond. Small groups, intentional itineraries, quiet luxury." },
-      { property: "og:title", content: "Local Tours — OG Star" },
+      { property: "og:title", content: "Local Tours — OG Star Travel & Tours" },
       { property: "og:description", content: "Ghana, told slowly. Curated journeys with concierge care." },
       { property: "og:image", content: heroImg },
     ],
@@ -32,11 +32,11 @@ const journeys = [
     body: "Sunrise walking safaris, elephants at the watering hole, and nights under the savannah sky in a quiet lodge." },
   { img: waterfall, region: "Volta Region", title: "Wli Falls & Afadjato",
     body: "West Africa's tallest waterfall, mountain hikes through cocoa villages, and the river country of the Volta." },
-  { img: gallery1, region: "Ashanti", title: "The Ashanti Kingdom",
+  { img: ashanti, region: "Ashanti", title: "The Ashanti Kingdom",
     body: "Manhyia Palace, Kente weaving in Bonwire and the living craft heritage of Kumasi — guided with deep care." },
-  { img: gallery2, region: "Greater Accra", title: "Accra in a Day",
+  { img: accra, region: "Greater Accra", title: "Accra in a Day",
     body: "An editorial-paced city walk: Jamestown light, Makola textures, Osu rooftops at sunset, contemporary galleries." },
-  { img: gallery3, region: "Western Region", title: "Nzulezu & Beyond",
+  { img: nzulezu, region: "Western Region", title: "Nzulezu & Beyond",
     body: "The village on stilts, mangroves and the wide green silence of the south-western coast." },
 ];
 
@@ -103,7 +103,7 @@ function LocalToursPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0" />
                 <div className="absolute bottom-6 left-6 right-6 border border-white/30 bg-background/85 p-5 backdrop-blur-xl">
                   <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Now Departing</div>
-                  <div className="mt-3 font-display text-2xl leading-none">Cape Coast · Two Nights</div>
+                  <div className="mt-3 font-display text-2xl leading-none">Local Destinations · Memories Awaits</div>
                   <div className="mt-1 text-xs text-muted-foreground">Small groups · Year-round</div>
                 </div>
               </motion.div>
@@ -188,7 +188,7 @@ function LocalToursPage() {
           <div className="mx-auto grid max-w-7xl gap-14 px-6 md:grid-cols-12 md:px-10">
             <div className="md:col-span-5">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <img src={mole} alt="Mole National Park at sunrise" loading="lazy" className="h-full w-full object-cover" />
+                <img src={accra} alt="Mole National Park at sunrise" loading="lazy" className="h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
             </div>

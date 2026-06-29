@@ -17,7 +17,7 @@ export const Route = createFileRoute("/international")({
     meta: [
       { title: "International Tours — OG Star Travel & Tour" },
       { name: "description", content: "Concierge-crafted international escapes — Dubai, Morocco, Bali, Istanbul, Europe and beyond. Editorial itineraries, quiet luxury, on-ground care." },
-      { property: "og:title", content: "International Tours — OG Star" },
+      { property: "og:title", content: "International Tours — OG Star Travel & Tours" },
       { property: "og:description", content: "A small atlas of the world, considered. Curated international journeys from Accra." },
       { property: "og:image", content: heroImg },
     ],
@@ -215,13 +215,13 @@ function InternationalPage() {
           <div className="mx-auto grid max-w-7xl gap-14 px-6 md:grid-cols-12 md:px-10">
             <div className="md:col-span-5">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <img src={turkey} alt="Istanbul at golden hour" loading="lazy" className="h-full w-full object-cover" />
+                <img src={morocco} alt="Istanbul at golden hour" loading="lazy" className="h-full w-full object-cover" />
               </div>
             </div>
             <div className="md:col-span-7 md:pl-6">
               <div className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">03 — Private Design</div>
               <h2 className="mt-6 font-display text-4xl leading-[1.05] md:text-6xl">
-                Don't see your <span className="italic">dream trip?</span>
+                Didn't see your <span className="italic">dream trip?</span>
               </h2>
               <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Most of our finest journeys begin as a private conversation. Tell us where you've always wanted to go,

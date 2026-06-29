@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Plane } from "lucide-react";
+import logo from "@/assets/logo-mark.png";
 
 interface EntryExperienceProps {
   onEnter: () => void;
@@ -18,6 +19,16 @@ export function EntryExperience({ onEnter }: EntryExperienceProps) {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
   }, []);
+
+  // Respect reduced-motion: skip the cinematic tear and enter immediately
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      const t = setTimeout(onEnter, 400);
+      return () => clearTimeout(t);
+    }
+  }, [onEnter]);
 
   const handleEnter = async () => {
     if (clicked) return;
@@ -93,24 +104,22 @@ export function EntryExperience({ onEnter }: EntryExperienceProps) {
       <motion.div
         animate={leftSideControls}
         initial={{ x: "0%" }}
-        style={{ ...sharedBackground, originX: 0, originY: 0.5 }}
-        className="pointer-events-auto absolute inset-y-0 left-0 w-1/2 overflow-hidden border-r border-white/5 shadow-[20px_0_40px_rgba(0,0,0,0.6)]"
+        style={{ ...sharedBackground, originX: 0, originY: 0.5, willChange: "transform" }}
+        className={`pointer-events-auto absolute inset-y-0 left-0 w-[calc(50%+1px)] overflow-hidden transition-shadow duration-300 ${clicked ? "shadow-[24px_0_60px_rgba(0,0,0,0.7)]" : ""}`}
       >
         {/* Left Side Noise & Details */}
         <div className="absolute inset-0 opacity-[0.04] w-[200vw]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        
+
         {/* Logo (Stays left) */}
         <motion.div
           animate={centerContentControls}
-          className="absolute left-8 top-8 z-10 flex items-center gap-3 md:left-12 md:top-10"
+          className="absolute left-8 top-8 z-10 md:left-12 md:top-10"
         >
-          <div className="grid h-9 w-9 place-items-center" style={{ border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Plane className="h-4 w-4 text-white/80 -rotate-45" strokeWidth={1.5} />
-          </div>
-          <div className="leading-tight text-left">
-            <div className="font-display text-sm text-white/90">OG Star</div>
-            <div className="text-[9px] uppercase tracking-[0.35em] text-white/40">Travel & Tour</div>
-          </div>
+          <img
+            src={logo}
+            alt="OG Star Travel & Tours"
+            className="h-9 w-auto opacity-95 brightness-0 invert md:h-11"
+          />
         </motion.div>
       </motion.div>
 
@@ -118,12 +127,12 @@ export function EntryExperience({ onEnter }: EntryExperienceProps) {
       <motion.div
         animate={rightSideControls}
         initial={{ x: "0%" }}
-        style={{ ...sharedBackground, originX: 1, originY: 0.5 }}
-        className="pointer-events-auto absolute inset-y-0 right-0 w-1/2 overflow-hidden border-l border-white/5 shadow-[-20px_0_40px_rgba(0,0,0,0.6)]"
+        style={{ ...sharedBackground, originX: 1, originY: 0.5, willChange: "transform" }}
+        className={`pointer-events-auto absolute inset-y-0 right-0 w-1/2 overflow-hidden transition-shadow duration-300 ${clicked ? "shadow-[-24px_0_60px_rgba(0,0,0,0.7)]" : ""}`}
       >
         {/* Right Side Noise & Details */}
         <div className="absolute inset-0 opacity-[0.04] w-[200vw] -translate-x-1/2" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
-        
+
         {/* Location Tag (Stays right) */}
         <motion.div
           animate={centerContentControls}
@@ -175,7 +184,7 @@ export function EntryExperience({ onEnter }: EntryExperienceProps) {
         animate={planeControls}
         initial={{ y: 160, opacity: 0, scale: 0.9 }}
         className="absolute bottom-0 left-1/2 z-20 -translate-x-1/2"
-        style={{ tyranny: "transform, opacity" }}
+        style={{ willChange: "transform, opacity" }}
       >
         {/* Glow halo */}
         <div

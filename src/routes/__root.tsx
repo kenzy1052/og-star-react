@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, useRouter } from "@tanstack/react-router";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 function NotFoundComponent() {
   return (
@@ -58,7 +59,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRoute({
-  component: () => <Outlet />,
+  component: () => (
+    <>
+      <Outlet />
+      <FloatingWhatsApp />
+    </>
+  ),
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
