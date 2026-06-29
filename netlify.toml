@@ -7,7 +7,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
-  conditions = {Role = []}
 
 # Security & performance headers for all pages
 [[headers]]
