@@ -11,8 +11,18 @@ export const Route = createFileRoute("/tours")({
     meta: [
       { title: "Tours — OG Star Travel & Tour" },
       { name: "description", content: "Curated local Ghanaian journeys and international escapes — editorial, elegant, experience-driven." },
+      { name: "keywords", content: "tour packages Ghana, Ghana tour operator, local tours Ghana, international tours Ghana, travel agency Accra, Cape Coast tours, Mole National Park tours, guided tours Ghana" },
       { property: "og:title", content: "Tours — OG Star Travel & Tour" },
+      { property: "og:description", content: "Curated local Ghanaian journeys and international escapes — editorial, elegant, experience-driven." },
+      { property: "og:url", content: "https://ogstartravelandtours.com/tours" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: `https://ogstartravelandtours.com${localHeroImg}` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Tours — OG Star Travel & Tour" },
+      { name: "twitter:description", content: "Curated local Ghanaian journeys and international escapes." },
+      { name: "twitter:image", content: `https://ogstartravelandtours.com${localHeroImg}` },
     ],
+    links: [{ rel: "canonical", href: "https://ogstartravelandtours.com/tours" }],
   }),
   component: ToursPage,
 });

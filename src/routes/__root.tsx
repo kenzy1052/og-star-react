@@ -1,4 +1,4 @@
-import { Outlet, Link, createRootRoute, useRouter } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, useRouter, HeadContent } from "@tanstack/react-router";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 function NotFoundComponent() {
@@ -59,8 +59,30 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+      { title: "OG Star Travel & Tour — Your Gateway to the World" },
+      {
+        name: "description",
+        content:
+          "Premium international travel, work abroad, Dubai opportunities, visa support and curated tours from Accra, Ghana. Concierge-grade service for every journey.",
+      },
+      {
+        name: "keywords",
+        content:
+          "travel agency Ghana, travel agency Accra, visa support Accra, work abroad Ghana, international tours Ghana, Dubai opportunities Ghana, OG Star Travel, travel agent Accra, work travel Ghana, study abroad Ghana, tour packages Ghana, Ghana tour operator, local tours Ghana, flight booking Ghana, relocation services Ghana, travel and tour company Accra",
+      },
+      { name: "author", content: "OG Star Travel & Tour" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:site_name", content: "OG Star Travel & Tour" },
+      { property: "og:locale", content: "en_GH" },
+    ],
+  }),
   component: () => (
     <>
+      <HeadContent />
       <Outlet />
       <FloatingWhatsApp />
     </>

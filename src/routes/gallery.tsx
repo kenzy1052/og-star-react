@@ -27,8 +27,18 @@ export const Route = createFileRoute("/gallery")({
     meta: [
       { title: "Gallery — OG Star Travel & Tour" },
       { name: "description", content: "Memories from the runway. Real moments, real journeys, real people — captured through the OG Star Travel & Tours experience." },
+      { name: "keywords", content: "OG Star Travel gallery, travel photos Ghana, tour photos Ghana, client journeys Ghana, travel agency Accra gallery" },
       { property: "og:title", content: "Gallery — OG Star Travel & Tours" },
+      { property: "og:description", content: "Memories from the runway. Real moments, real journeys, real people." },
+      { property: "og:url", content: "https://ogstartravelandtours.com/gallery" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: `https://ogstartravelandtours.com${dubai}` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Gallery — OG Star Travel & Tours" },
+      { name: "twitter:description", content: "Memories from the runway. Real moments, real journeys, real people." },
+      { name: "twitter:image", content: `https://ogstartravelandtours.com${dubai}` },
     ],
+    links: [{ rel: "canonical", href: "https://ogstartravelandtours.com/gallery" }],
   }),
   component: GalleryPage,
 });

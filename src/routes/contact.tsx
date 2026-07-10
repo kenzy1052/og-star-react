@@ -18,8 +18,58 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title: "Contact — OG Star Travel & Tour" },
       { name: "description", content: "Get in touch with OG Star Travel & Tour. Talk to us about work abroad opportunities, visa support, tours and relocation assistance." },
+      { name: "keywords", content: "contact OG Star Travel, travel agency Accra contact, visa consultation Accra, book a tour Ghana, travel agent phone number Ghana" },
       { property: "og:title", content: "Contact — OG Star Travel & Tours" },
+      { property: "og:description", content: "Talk to us about work abroad opportunities, visa support, tours and relocation assistance." },
+      { property: "og:url", content: "https://ogstartravelandtours.com/contact" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://ogstartravelandtours.com/og-image.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact — OG Star Travel & Tours" },
+      { name: "twitter:description", content: "Talk to us about work abroad opportunities, visa support, tours and relocation assistance." },
+      { name: "twitter:image", content: "https://ogstartravelandtours.com/og-image.jpg" },
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "How do I get started with the Dubai Work Programme?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Reach out via this form or WhatsApp and we'll schedule a brief consultation to assess your profile and walk you through the current intake requirements.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you handle the visa application for me?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Our documentation team handles end-to-end visa guidance — from eligibility review and document checklist to application drafting and submission.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does the process typically take?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Timelines vary by destination and case. Dubai placements typically take 4–8 weeks from consultation to departure. We'll give you a realistic timeline in your first call.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you have tours for solo travelers?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Absolutely. Our tours accommodate solo travelers, couples, families and groups. Every itinerary is tailored to your preferences.",
+              },
+            },
+          ],
+        },
+      },
     ],
+    links: [{ rel: "canonical", href: "https://ogstartravelandtours.com/contact" }],
   }),
   component: ContactPage,
 });

@@ -22,9 +22,18 @@ export const Route = createFileRoute("/work-travel")({
     meta: [
       { title: "Work & Travel Abroad — OG Star Travel & Tour" },
       { name: "description", content: "Concierge-crafted work & travel pathways to Dubai, Canada, Europe and beyond. Visa guidance, interview prep and relocation support — handled from Accra." },
+      { name: "keywords", content: "work abroad Ghana, work and travel Ghana, Dubai jobs Ghana, work permit Ghana, Canada work visa Ghana, Europe work opportunities Ghana, relocation services Ghana, work travel agency Accra" },
       { property: "og:title", content: "Work & Travel Abroad — OG Star Travel & Tours" },
       { property: "og:description", content: "International opportunities, handled with care." },
+      { property: "og:url", content: "https://ogstartravelandtours.com/work-travel" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: `https://ogstartravelandtours.com${heroImg}` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Work & Travel Abroad — OG Star Travel & Tours" },
+      { name: "twitter:description", content: "International opportunities, handled with care." },
+      { name: "twitter:image", content: `https://ogstartravelandtours.com${heroImg}` },
     ],
+    links: [{ rel: "canonical", href: "https://ogstartravelandtours.com/work-travel" }],
   }),
   component: WorkTravelPage,
 });
